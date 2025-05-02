@@ -3,16 +3,25 @@ Rails.application.routes.draw do
 
   get("/directors/youngest", { :controller => "directors", :action => "max_dob" })
   get("/directors/eldest", { :controller => "directors", :action => "min_dob" })
-  post("/insert_director", { :controller => "directors", :action => "insert_director" })
 
   get("/directors", { :controller => "directors", :action => "index" })
   get("/directors/:path_id", { :controller => "directors", :action => "show" })
+  post("/insert_director", { :controller => "directors", :action => "insert_director" })
+  get("/delete_director/:path_id", { :controller => "directors", :action => "delete_director" })
+  post("/modify_director/:path_id", { :controller => "directors", :action => "modify_director" })
+
 
   get("/movies", { :controller => "movies", :action => "index" })
   get("/movies/:path_id", { :controller => "movies", :action => "show" })
-  
+  post("/insert_movie", { :controller => "movies", :action => "insert_movie" })
+  get("/delete_movie/:path_id", { :controller => "movies", :action => "delete_movie" })
+  post("/modify_movie/:path_id", { :controller => "movies", :action => "modify_movie" })
+
+
   get("/actors", { :controller => "actors", :action => "index" })
   get("/actors/:path_id", { :controller => "actors", :action => "show" })
-
+  post("/insert_actor", { :controller => "actors", :action => "insert_actor" })
+  get("/delete_actor/:path_id", { :controller => "actors", :action => "insert_actor" })
+  post("/modify_actor/:path_id", { :controller => "actors", :action => "insert_actor" })
 
 end

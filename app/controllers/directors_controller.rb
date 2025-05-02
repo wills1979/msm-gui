@@ -29,6 +29,33 @@ class DirectorsController < ApplicationController
 
   end
 
+  def delete_director
+
+    existing_id = params.fetch("path_id")
+
+    director = Director.find(existing_id)
+    director.destroy
+
+    redirect_to("/directors")
+
+  end
+
+  def modify_director
+
+    existing_id = params.fetch("path_id")
+
+    existing_director = Director.find(existing_id)
+    existing_director.name = params.fetch("query_name")
+    existing_director.dob = params.fetch("query_dob")
+    existing_director.bio = params.fetch("query_bio")
+    existing_director.image = params.fetch("query_image")
+
+    existing_director.save
+
+    redirect_to("/directors/#{existing_id}")
+
+  end
+
   def max_dob
     directors_by_dob_desc = Director.
       all.
