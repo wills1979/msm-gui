@@ -37,7 +37,7 @@ class ActorsController < ApplicationController
 
     existing_id = params.fetch("path_id")
 
-    existing_actor = Director.find(existing_id)
+    existing_actor = Actor.find(existing_id)
     existing_actor.image = params.fetch("query_image")
     existing_actor.name = params.fetch("query_name")
     existing_actor.dob = params.fetch("query_dob")

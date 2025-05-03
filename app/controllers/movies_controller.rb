@@ -37,6 +37,8 @@ class MoviesController < ApplicationController
 
     existing_id = params.fetch("path_id")
 
+    existing_movie = Movie.find(existing_id)
+
     existing_movie.title = params.fetch("query_title")
     existing_movie.year = params.fetch("query_year")
     existing_movie.duration = params.fetch("query_duration")

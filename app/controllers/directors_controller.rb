@@ -45,6 +45,7 @@ class DirectorsController < ApplicationController
     existing_id = params.fetch("path_id")
 
     existing_director = Director.find(existing_id)
+    
     existing_director.name = params.fetch("query_name")
     existing_director.dob = params.fetch("query_dob")
     existing_director.bio = params.fetch("query_bio")
